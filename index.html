@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>從零到 CVPR · 互動式學習路線</title>
+  <meta name="description" content="一條從零基礎到 CVPR 投稿的互動式學習路線：8 個階段、可勾選的里程碑、隨堂小測驗與真實的時間線規劃。">
+  <meta property="og:title" content="從零到 CVPR · 互動式學習路線">
+  <meta property="og:description" content="零基礎 → CVPR 投稿：8 個階段的互動式學習路線，附進度追蹤與隨堂測驗。">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🏔️</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap header-inner">
+    <div class="brand">
+      <div class="logo">🏔️</div>
+      <div>
+        <h1>從零到 CVPR</h1>
+        <p class="sub">互動式學習路線 · 零基礎 → 頂會投稿</p>
+      </div>
+    </div>
+    <div class="header-right">
+      <div class="progress-box" title="總進度（自動保存在你的瀏覽器）">
+        <div class="progress-meta">
+          <span id="progress-label">0 / 0</span>
+          <span id="progress-pct">0%</span>
+        </div>
+        <div class="progress-track"><div class="progress-fill" id="progress-fill"></div></div>
+      </div>
+      <button class="icon-btn" id="theme-toggle" aria-label="切換深色模式">🌙</button>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <!-- Hero -->
+  <section class="card hero">
+    <h2>CVPR 是什麼？</h2>
+    <p>CVPR（IEEE/CVF Conference on Computer Vision and Pattern Recognition）是<b>電腦視覺領域最頂級的學術會議</b>。說人話：全世界的研究者每年把「讓機器看懂影像」的最新成果送去競爭，只有約四分之一能被接收。「投稿 CVPR」＝完成一項原創的視覺研究 → 寫成 8 頁論文 → 通過 3 位審稿人評審 → 在隔年 6 月的會議上報告。</p>
+    <div class="stat-row">
+      <div class="stat"><b>22–26%</b><span>論文接受率</span></div>
+      <div class="stat"><b>11 月中</b><span>每年截稿（次年 6 月開會）</span></div>
+      <div class="stat"><b>8 頁</b><span>正文上限（不含參考文獻）</span></div>
+      <div class="stat"><b>3 位</b><span>審稿人（另有領域主席把關）</span></div>
+    </div>
+    <div class="note-box">
+      <b>⏳ 現實檢查與目標設定</b>
+      <p>從今天（2026 年 9 月）算起，最近一次截稿是 <b>CVPR 2027（預計 2026 年 11 月 13 日，以官網為準）</b>——對零基礎的你並不現實，也不必勉強。這條路線按<b>全職節奏約 14 個月</b>設計，正好對齊 <b>CVPR 2028（預計 2027 年 11 月截稿）</b>；在職／在學兼職者，把每個階段拉長 1.5–2 倍，目標設為 CVPR 2029。研究是長跑——先開始的人先到達。</p>
+    </div>
+  </section>
+
+  <!-- 任務地圖 -->
+  <section class="card">
+    <h2>CVPR 的論文都在做什麼？</h2>
+    <p class="sec-lead">一句話：<b>讓機器看懂（並生成）影像與三維世界。</b>下面的任務地圖，就是你未來的研究座標——你會落在其中一格，或幾格的交叉點。</p>
+    <div class="map-grid" id="map-grid"></div>
+  </section>
+
+  <!-- 時間線 -->
+  <section class="card">
+    <h2>時間線總覽（全職節奏 ≈ 14 個月）</h2>
+    <div class="tl-track" id="tl-track"></div>
+    <div class="tl-legend" id="tl-legend"></div>
+    <p class="tl-note">🎯 終點標記：CVPR 2028 截稿（預計 2027 年 11 月）。兼職節奏請把長度乘以 1.5–2 倍。</p>
+  </section>
+
+  <!-- 階段導覽 -->
+  <nav class="phase-nav" id="phase-nav" aria-label="階段快速跳轉"></nav>
+
+  <!-- 8 個階段 -->
+  <section id="phases"></section>
+
+  <!-- 算力指南 -->
+  <section class="card">
+    <h2>💻 算力指南：沒有 GPU 也能開始</h2>
+    <div class="tile-grid" id="compute-grid"></div>
+  </section>
+
+  <!-- 常見陷阱 -->
+  <section class="card">
+    <h2>⚠️ 七個最常見的坑</h2>
+    <div class="tile-grid" id="pitfall-grid"></div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="card">
+    <h2>❓ 常見問題</h2>
+    <div id="faq-list"></div>
+  </section>
+
+  <footer class="footer">
+    <p>本路線是一份地圖，不是軍令狀——按自己的節奏調整。<br>進度與偏好自動保存在你的瀏覽器本地（localStorage）。</p>
+    <p class="footer-links">
+      <a href="https://cvpr.thecvf.com" target="_blank" rel="noopener">CVPR 官網</a> ·
+      <a href="https://openaccess.thecvf.com" target="_blank" rel="noopener">CVF Open Access</a> ·
+      <a href="https://openreview.net" target="_blank" rel="noopener">OpenReview</a>
+    </p>
+    <button class="ghost-btn" id="reset-progress">清空全部進度</button>
+  </footer>
+
+</main>
+
+<script src="data.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
